@@ -2,15 +2,17 @@ import java.util.StringTokenizer;
 
 public class Question1 {
 
+// assumption for question is that there is only 1 solution to each problem
     public static void main(String[] args) {
         String numberList = args[0];
         int target = Integer.parseInt(args[1]);
         StringTokenizer numbers = new StringTokenizer(numberList, ",");
         int[] intNumbers = convertToIntArray(numbers);
-        if(naiveSolution(intNumbers, target)) {
-            System.out.println("true");
-        } else {
-            System.out.println("false");
+        try  {
+            int[] answer = naiveSolution(intNumbers, target);
+            System.out.println("Found two sum solution, " + answer[0] + " + " + answer[1] + " = " + target);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -25,14 +27,15 @@ public class Question1 {
         return intNumbers;
     }
 
-    private static boolean naiveSolution(int[] numbers, int target) {
+    private static int[] naiveSolution(int[] numbers, int target) throws Exception {
+        int[] answer = new int[2];
         for(int i=0; i<numbers.length-1; i++){
             for(int j=i+1; j<numbers.length; j++) {
                 if(numbers[i] + numbers[j] == target) {
-                    return true;
+                    return answer;
                 }
             }
         }
-        return false;
+        throw new IllegalArgumentException("No two sum solution");
     }
 }
