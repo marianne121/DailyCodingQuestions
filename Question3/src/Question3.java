@@ -1,7 +1,7 @@
 public class Question3 {
 
     public static void main(String[] args) {
-        int[] original = {1,2,3,4,5,6,7,8};
+        int[] original = {1,2,4,3,5,6,7,8};
         Node root = new Node(original[0]);
         Tree binaryTree = new Tree(root);
         binaryTree.insertLevelOrder(original, root, 1);
@@ -17,6 +17,9 @@ public class Question3 {
         System.out.println();
         System.out.println("post order traversal");
         binaryTree.postOrder(root);
+        System.out.println();
+        System.out.println("bfs traversal");
+        binaryTree.Bfs((root));
     }
 
 

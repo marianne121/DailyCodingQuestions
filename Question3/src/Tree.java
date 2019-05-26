@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Tree {
     private Node root;
 
@@ -22,6 +25,8 @@ public class Tree {
         }
     }
 
+    // Todo: how to return a string instead of printing immediately?
+    // below 3 functions are all depth first search algorithms
     public void inOrder(Node currNode) {
         if (currNode != null) {
             inOrder(currNode.getLeft());
@@ -44,5 +49,22 @@ public class Tree {
             postOrder(currNode.getRight());
             System.out.print(currNode.getValue() + " ");
         }
+    }
+
+    // breadth first search traversal
+    public void Bfs(Node currNode) {
+        Queue<Node> values = new LinkedList<>();
+        values.offer(currNode);
+        while (values.size() != 0) {
+            Node current = values.poll();
+            System.out.print(current.getValue() + " ");
+            if(current.getLeft()!=null) {
+                values.offer(current.getLeft());
+            }
+            if (current.getRight()!=null) {
+                values.offer(current.getRight());
+            }
+        }
+
     }
 }
