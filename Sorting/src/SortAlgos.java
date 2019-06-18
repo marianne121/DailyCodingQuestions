@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SortAlgos {
 
     public static void main(String[] args) {
@@ -21,6 +23,24 @@ public class SortAlgos {
         System.out.println("Selection sort : ");
         selectionSort(original3);
         for(int x: original3) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+
+        int[] original4 = {9,90,40,23,13,15,1,1000,12,80};
+        System.out.println("Merge sort : ");
+        MergeSort merge = new MergeSort();
+        int[] sortedArray = merge.sort(original4, 0, original4.length-1);
+        for(int x: sortedArray) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+
+        int[] original5 = {9,90,40,23,13,15,1,1000,12,80};
+        System.out.println("Quick sort : ");
+        QuickSort quick = new QuickSort();
+        int[] sortedQuick = quick.sort(original5, 0, original5.length-1);
+        for(int x: sortedQuick) {
             System.out.print(x + " ");
         }
         System.out.println();
@@ -77,6 +97,4 @@ public class SortAlgos {
             currentIdx++;
         }
     }
-
-
 }
